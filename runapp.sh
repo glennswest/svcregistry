@@ -7,4 +7,7 @@ docker create -p 5000:5000 \
  -e MIRROR_SOURCE_INDEX=https://index.docker.io \
  -e STORAGE_PATH=/srv/registry \
  --name=svcregistry.site.com registry:2
+scp svcregistry.service root@s001.site.com:/etc/systemd/system/svcregistry.service
+ssh root@s001.site.com service enable svcregistry.service
+ssh root@s001.site.com service start svcregistry.service
 
